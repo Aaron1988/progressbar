@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="progressbar">
+        <div id="progress"></div>
+        <div id="text"></div>
+    </div>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script>
+        let duration = 0;
+        let start = 0;
+
+        function startProgress(data) {
+            duration = data.duration;
+            start = new Date().getTime();
+            $('#text').text(data.text);
+            $('#progressbar').fadeIn();
+            $('#progress').css('transition', 'width ' + (duration / 1000) + 's linear');
+            $('#progress').css('width', '100%');
+        }
+
+        function stopProgress() {
+            $('#progress').css('transition', 'none');
+            $('#progress').css('width', '0%');
+            $('#progressbar').fadeOut();
+        }
+
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'progress') {
+                startProgress(event.data);
+            } else if (event.data.type === 'stop') {
+                stopProgress();
+            }
+        });
+    </script>
+</body>
+</html>
