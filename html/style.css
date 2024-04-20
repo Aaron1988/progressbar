@@ -2,34 +2,56 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    height: 100vh;
 }
 
 #progressbar {
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 4cm;
+    transform: translateX(-50%);
     width: 300px;
     height: 30px;
     background-color: #f0f0f0;
     border-radius: 15px;
     overflow: hidden;
     display: none;
+    box-shadow: 0 0 0 2px black; /* Contorno nero per la barra esterna */
 }
 
 #progress {
     width: 0%;
     height: 100%;
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Colore base verde della barra di progresso */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+        to right, 
+        #4CAF50 10%, 
+        #76FF03 30%, 
+        #4CAF50 50%, 
+        #76FF03 70%, 
+        #4CAF50 90%
+    );
+    background-size: 400% 100%;
+    animation: moveShine 3s ease-in-out infinite;
+}
+
+@keyframes moveShine {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
 }
 
 #text {
     position: absolute;
-    left: 50%;
+    width: 100%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+    transform: translateY(-50%);
+    color: black;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    font-weight: bold;
     text-align: center;
+    text-shadow: 1px 1px 0px white, -1px -1px 0px white, -1px 1px 0px white, 1px -1px 0px white;
 }
