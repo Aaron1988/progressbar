@@ -39,3 +39,7 @@ end)
 
 Ricorda di gestire eventuali situazioni in cui la progressbar potrebbe essere interrotta, ad esempio quando un giocatore si disconnette o muore. Puoi utilizzare gli eventi di rete appropriati per interrompere la progressbar in tali situazioni.
 Con questi passaggi, sarai in grado di utilizzare la progressbar in altre risorse del tuo server FiveM. Assicurati di adattare il codice alle tue esigenze specifiche e di testare accuratamente l'integrazione con le altre risorse.
+
+## TEST ##
+- Comando **testbarr** fa partire una progbar di test di 5 secondi.
+- Comando **testbarr2** fa partire due progbar una dopo l'altra. 
